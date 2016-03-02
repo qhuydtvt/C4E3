@@ -1,0 +1,6 @@
+- Check variable's type: Type(a) or Type("a") or Type(0.5)
+- 3 cases that we will get SyntaxError from the compiler telling
+our that some of our variables have invalid names:
+ + Does not begin with letter. Eg: 34gfaslk 
+ + Contains an illegal character. Eg: @#*@#^@
+ + Use Python's keywords: Eg: def
