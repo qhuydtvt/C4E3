@@ -1,0 +1,5 @@
+Check variable's type: Type(huygay) or Type("is huy gay") or Type(0.16)
+ +- 3 cases that we will get SyntaxError from the compiler telling
+ + + Does not begin with letter. Eg: 100gfasl
+ + + Contains an illegal character. Eg: @11%%%
+ + + Use Python's keywords: Eg: while
