@@ -1,9 +1,9 @@
 from turtle import *
-color('green', 'yellow')
+color('green','yellow')
 begin_fill()
 while True:
-    forward(1)
-    left(1)
+    forward(200)
+    right(90)
     if abs(pos()) < 1:
         break
 end_fill()

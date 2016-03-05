@@ -6,4 +6,4 @@ while i<=3:
     forward(250)
     right(90)
     i=i+1
-    
+end_fill()
