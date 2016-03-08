@@ -1,17 +1,16 @@
 from turtle import *
 n = 4
 speed (0)
-while True:
-    if n < 10:
-        color('red')
-        fd(100)
-        left(360/n)
-        color ('blue')
-        fd(100)
-        left(360/n)
-        if abs(pos())<1:
-            n = n+1
+while n < 10:
+    i = 0
+    while i < n:
+        if i%2 == 0:
+            color('red')
+            fd(100)
+            left(360/n)
         else:
-            continue            
-    else:
-        break
+            color('blue')
+            fd(100)
+            left(360/n)
+        i = i + 1
+    n = n + 1 
