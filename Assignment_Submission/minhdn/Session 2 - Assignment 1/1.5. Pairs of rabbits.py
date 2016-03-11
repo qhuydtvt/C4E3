@@ -11,8 +11,7 @@ while i < 10 :
     m0 = m1
     n0 = n1
 
-
 #m0, m1 la mature thang truoc, mature thang sau
 #n0, n1 la newborn thang truoc, newborn thang sau
     
-    
+
