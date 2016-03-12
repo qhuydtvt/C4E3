@@ -6,8 +6,8 @@ def evenl(n):
     for b in l:
         if (b%2)==0:
             k.append(b)
+    e = print("The even number: ", end=" ")
     for c in k:
         d = print(c, end =" ")
-    return d
-print("The even number: ", end=" ")
+    return 
 evenl(x)
