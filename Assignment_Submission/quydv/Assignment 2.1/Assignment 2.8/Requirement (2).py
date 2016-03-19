@@ -35,18 +35,13 @@ def edit_movie():
                 edit_info = "trans_name"
             new_info = input("Please enter your correction: ")
             movie_list[i][edit_info] = new_info
-##        else:
-##            print("There is no such movie in our list.")
     print_movie()
-
+    
 def remove_movie():
-    print(len(movie_list))re
     remove_movie = input("Which movie do you want to remove?")
-    for i in range(len(movie_list)):
-        if remove_movie == movie_list[i]["org_name"] or remove_movie == movie_list[i]["trans_name"]:
-            movie_list.pop(i)
-##        else:
-##            print("There is no such movie in our list.")
+    for movie in movie_list:
+        if remove_movie == movie["org_name"] or remove_movie == movie["trans_name"]:
+            movie_list.remove(movie)
     print_movie()
 
 action = input("What do you want (add/edit/remove) movie? ")
