@@ -5,11 +5,18 @@ print('sheet name',sheet_names)
 xl_sheet = xl_workbook.sheet_by_name(sheet_names[0])
 emcol = xl_sheet.col(2)
 fcol = xl_sheet.col(1)
-    
-    
+##empty = []
+##for i in emcol:
+##    empty.append(i)
+##for i in empty:
+##    str(i)
+##    print(type(i))
+##    
+##    i.split(":")
+
 import smtplib
-user_name = "tho.d.nguyen31"
-password = "gudluck68"
+user_name = "c4e3.techkids"
+password = "xanhgimaxanhthe"
 
 from_addr = "tho.d.nguyen31@gmail.com"
 for i in emcol:
