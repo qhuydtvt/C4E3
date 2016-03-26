@@ -2,10 +2,10 @@ from bs4 import BeautifulSoup
 import xlwt
 import urllib.request
 
-# url1 = "www.s.cafef.vn/bao-cao-tai-chinh/VNM/IncSta/2015/3/0/0/ket-qua-hoat-dong-kinh-doanh-cong-ty-co-phan-sua-viet-nam.chn"
-# wp = urllib.request.urlopen(url1)
-# html = wp.read()
-# html_string= html.decode("utf-8")
+url1 = "http://s.cafef.vn/bao-cao-tai-chinh/VNM/IncSta/2015/3/0/0/ket-qua-hoat-dong-kinh-doanh-cong-ty-co-phan-sua-viet-nam.chn"
+wp = urllib.request.urlopen(url1)
+html = wp.read()
+html_string= html.decode("utf-8")
 
 class DataRow:
     def __init__(self, t, n):
@@ -16,15 +16,12 @@ class DataRow:
     def nprint(self):
         print(self.numbers)
 
-file = open("scafef.html","rb")
-wp = file.read()
-soup = BeautifulSoup(wp.decode("utf-8"), "html.parser")
+soup = BeautifulSoup(html_string, "html.parser")
 
 table_content = soup.find("table", id="tableContent")
-table_body = table_content.find("tbody")
+# table_body = table_content.find("tbody")
 
-trs = table_body.find_all("tr", recursive=False)
-
+trs = table_content.find_all("tr", recursive = False)
 data_rows = []
 
 for tr in trs:
