@@ -11,6 +11,7 @@ tab = taco.find("tbody")
 tr = tab.find_all("tr")
 for i in tr:
     for td in i.find_all("td", "b_r_c"):
-        t = td.get_text()
+        t = td.get_text().strip()
         if len(t) != 0:
-            print(t, end = "|")
+            print(t, end = "| ")
+    print()
