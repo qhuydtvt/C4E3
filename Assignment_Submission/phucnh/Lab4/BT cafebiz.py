@@ -13,7 +13,7 @@ cafebiz = requests.get("http://cafebiz.vn/")
 
 from bs4 import BeautifulSoup
 
-trangweb = BeautifulSoup(cafebiz._content,"html.parser")
+trangweb = BeautifulSoup(cafebiz.content,"html.parser")
 
 
 list_home= trangweb.find("div",class_="list_home")
@@ -22,8 +22,8 @@ li_list= list_home.find_all("li")
 baiviet=[]
 for li in li_list:
     tieude= li.find("h3").get_text()
-    link="http://cafebiz.vn"+ li.find("h3").find("a").get('href')
-    anh= li.find("img").get('src')
+    link="http://cafebiz.vn"+ li.find("h3").a['href']
+    anh= li.img['src']
     thoigian= li.find("span",class_="time").get_text()
     baiviet.append(BaiViet(tieude,link,anh,thoigian))
 
@@ -44,3 +44,6 @@ print(bai_web.find("h2",class_="sapo").get_text())
 print("-----------------------------")
 print("Nội dung")
 print(bai_web.find("div",class_="detail-content").get_text())
+
+#khai bao them thuoc tinh
+#post.content=conent
