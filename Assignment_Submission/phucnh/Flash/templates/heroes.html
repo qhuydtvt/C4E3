@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sinh nhat hiep xanh</title>
+</head>
+<body>
+    {% for movie in movies %}
+       <h1>{{movie.title}}</h1>
+        <a href="{{movie.link}}">
+            <img src="{{movie.img}}">
+        </a>
+
+
+
+    {% endfor %}
+</body>
+</html>

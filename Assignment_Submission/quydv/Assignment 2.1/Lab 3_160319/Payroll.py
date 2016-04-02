@@ -54,7 +54,6 @@ def print_collection(collection):
             )
 
 
-
 def them_tong_luong(ho_ten):
     a = quy_collection.find_one({"ho_ten": ho_ten})
     tong_luong = a["luong_1_buoi"] * a["so_buoi_day"]
@@ -64,6 +63,16 @@ def them_tong_luong(ho_ten):
             "tong_luong_day": tong_luong}
             }
         )
+
+def update_payroll(ho_ten, update_key, update_info):
+    quy_collection.update_many(
+        {"ho_ten": ho_ten},
+            {
+                "$set": {
+                    update_key: update_info
+                }
+            }
+    )
 
 # them_tong_luong("Nguyen Quang Huy") #them tong luong vao document
 # for document in quy_collection.find():
@@ -85,7 +94,7 @@ def find(collection, key, data):
     print("\n")
 
 find(quy_collection, "lop", "C4E3")
-
+update_payroll("Hiep xanh", "ho_ten", "Tran Quang Hiep" )
 print_collection(quy_collection)
 
 
