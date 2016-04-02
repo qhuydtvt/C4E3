@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import urllib.request
 import xlwt
+wb = xlwt.Workbook()
+ws = wb.add_sheet("BCTC VNM")
 
 url = "http://s.cafef.vn/bao-cao-tai-chinh/VNM/IncSta/2015/3/0/0/ket-qua-hoat-dong-kinh-doanh-cong-ty-co-phan-sua-viet-nam.chn"
 
@@ -36,8 +38,7 @@ for tr in trs:
         data_rows.append(data_row)
 
 
-wb = xlwt.Workbook()
-ws = wb.add_sheet("BCTC VNM")
+ws = wb.get_sheet(0)
 
 for i in range(len(data_rows)):
     ws.write(i, 0, data_rows[i].title)

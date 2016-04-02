@@ -20,11 +20,11 @@ data_rows = []
 
 #Truy cập vào cafebiz và đọc bằng BeautifulSoup
 cafebiz = requests.get("http://cafebiz.vn/")
-cafebiz.html = BeautifulSoup(cafebiz.content, "html.parser")
+cafebiz_html = BeautifulSoup(cafebiz.content, "html.parser")
 
 #Lấy dữ liệu bằng crawling kết hợp walking
-cafebiz.list_home = cafebiz.html.find("div", attrs={"class": "list_home"})
-titles = cafebiz.list_home.find_all("li")
+cafebiz_list_home = cafebiz_html.find("div", attrs={"class": "list_home"})
+titles = cafebiz_list_home.find_all("li")
 for t in titles:
     title = t.h3.a.string.strip()
     date = t.p.span.string
