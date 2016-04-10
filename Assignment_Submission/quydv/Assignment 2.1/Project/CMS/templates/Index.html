@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CMS Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
+    <style>
+    .w3-lato {
+      font-family: 'Lato', sans-serif;
+    }
+    </style>
+</head>
+
+<!-- Brand -->
+<header class= "w3-lato" style="margin-left: 40px; margin-bottom: -5px; margin-top: 20px">
+    <span class="w3-tag w3-blue w3-xlarge" style="margin-bottom: -30px; padding-bottom: 10px; padding-top: 10px; text-align: center">Python for Everyone</span></p>
+</header>
+
+<body class="w3-lato">
+<div class="w3-row">
+
+<!-- Class Summary -->
+<div class="w3-col w3-container m7 w3-border-blue w3-topbar w3-bottombar w3-border">
+        <header class="w3-container" style="padding-top: -20px; margin-left: 14px; margin-top: -6px">
+        <p class="w3-lato">
+            <h1 class="w3-lato w3-text-blue"> Class Summary: Python for Everyone </h1>
+            <h3 class="w3-lato" style="margin-top: 40px"> Organizers </h3>
+                <table class="w3-table">
+                    <tr class="w3-blue">
+                      <th>Title</th>
+                      <th>Name</th>
+                      <th>Mobile</th>
+                      <th>Email</th>
+                    </tr>
+                    <tr class="w3-hover-black">
+                      <td>Teacher</td>
+                      <td>Huy Nguyen Quang</td>
+                      <td>+84 69696969</td>
+                      <td>huy.xxx@gmail.com</td>
+                    </tr>
+                    <tr class="w3-hover-grey">
+                      <td>Coach</td>
+                      <td>Hiep Tran Quang</td>
+                      <td>+84 66996699</td>
+                      <td>hiepdamdang@gmail.com</td>
+                    </tr>
+                </table>
+            <h3 class="w3-lato" style="margin-top: 40px"> Policy </h3>
+                <table class="w3-table">
+                    <tr>
+                        <td>Late arrival:</td>
+                        <td>10.000 VND</td>
+                        {% for i in range(20) %}
+                            <td></td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>Submit assignment after deadline:</td>
+                        <td>20.000 VND</td>
+                    </tr>
+                    <tr>
+                        <td>Not submit assignment even after deadline:</td>
+                        <td>50.000 VND</td>
+                    </tr>
+                    <tr>
+                        <td>Not turn off electricity after class:</td>
+                        <td>10.000 VND</td>
+                    </tr>
+                </table>
+
+        </header>
+    </div>
+
+<!-- Lecture right side bar -->
+<div class="w3-col w3-container m5 w3-topbar w3-border-black">
+ <ul class="w3-ul" style="padding-top: 12px; margin-left: -16px">
+    {% for lecture in lecture_list %}
+        <nav class="w3-sidenav w3-white" style="width:100%">
+        <a href="/{{ lecture.href }}" class="w3-hover-blue"> {{ lecture.title }}</a></>
+    {% endfor %}
+    </nav>
+    </ul>
+</div>
+
+</body>
+{#<footer class="footer"> ABC </footer>#}
+
+</html>
+
