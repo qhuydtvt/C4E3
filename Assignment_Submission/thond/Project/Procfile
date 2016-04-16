@@ -1,1 +1,1 @@
-web: gunicorn W.I.N:app
+web: gunicorn hackathon:app
