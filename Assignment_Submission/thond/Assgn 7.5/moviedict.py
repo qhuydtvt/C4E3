@@ -8,6 +8,7 @@ if len(mov_name) != 0:
     quality = input("Quality of the movie (HD or Cam): ")
     year = input("What is the release year of the movie?" )
     URI = "mongodb://c4e3:CodeTheChange@ds015879.mlab.com:15879/c4e3_movie_db"
+      mongodb://jamesmyname:foreverstrong1@ds023530.mlab.com:23530/restaurant-c4e3
     client = MongoClient(URI)
     db = client.get_default_database()
     movies = db["movies"]
