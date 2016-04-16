@@ -7,6 +7,7 @@ import datetime
 from datetime import date, timedelta
 from time import mktime
 from mongoengine import *
+from flask import request
 
 LOW_TIME_SPAN_30 = datetime.timedelta(days = 30)
 
@@ -48,7 +49,7 @@ def extract_username(url):
 	return re.search(r'https://www.facebook.com/([^/?]+)', url).group(1)
 
 def build_post_url ():
-    url=input("Nhập trang facebook url của trang đối thủ: ") #nhập rồi sau đó cách một cái
+    url=request.form['dinhmenh'] #nhập rồi sau đó cách một cái
     username=extract_username(url)
     graph_facebook = "https://graph.facebook.com/"
     link_end = "/posts/?key=value&access_token="
@@ -150,36 +151,7 @@ def get_post_score(post):
 
 #----------------------------------------------------------------------------------------
 
-post_url = build_post_url()
-post_list = extract_posts_within_30_days(post_url)
-for post in post_list:
-    get_likes_shares_comments(post)
 
-sorted_post_list = sorted(post_list, key=get_post_score, reverse=True)
-
-connect('test',host = "mongodb://c4e3:c4e3@ds023530.mlab.com:23530/restaurant-c4e3")
-
-class Restaurant8(Document):
-    post_id = StringField()
-    message = StringField()
-    created_time = StringField()
-    likes = StringField()
-    shares = StringField()
-    comments = StringField()
-    score = StringField()
-
-# đẩy lên mongo
-for post in sorted_post_list[:6]:
-    post_dict = post.__dict__
-    post_dict_mongo = Restaurant8(post_id = str(post_dict['id']),
-                                  message = post_dict['message'],
-                                  created_time = str(post_dict['created_time']),
-                                  likes=str(post_dict['likes']),
-                                  shares=str(post_dict['shares']),
-                                  comments=str(post_dict['comments']),
-                                  score=str(post_dict['score'])
-                                  )
-    post_dict_mongo.save()
 
 # in ra phần nội dung post chứa keyword có tổng 6 like, share, comt nhiều nhất
 # for post in sorted_post_list[:6]:
